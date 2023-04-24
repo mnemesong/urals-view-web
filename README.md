@@ -10,7 +10,7 @@ Package tested for Haxe >= 4.0.
 The functionality or it missing of the package for lesser versions has not been tested.
 
 
-## QuickStart
+## Quick start
 1. urals-view-web as library to your project
 2. Add this code for generating web-page
 ```haxe
@@ -58,11 +58,25 @@ function defaultTemplate(
 /**
     Default render options generator for UralsViewWeb
 **/
-function defaultRenderOptions(
+function defaultRenderOptions( 
     lang: String, 
     title: String,
     csrfGenerator: () -> String
 ): DefaultRenderOptions {...}
+
+/**
+    Render style link teg by published css
+**/
+function styleLinkTag(
+    p: PublishedCss
+): String {...}
+
+/**
+    Render Script tag
+**/
+function scriptTag(
+    s: PublishedScript
+): String {...}
 ```
 
 ## Used types
