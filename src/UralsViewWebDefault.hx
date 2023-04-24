@@ -1,7 +1,7 @@
 package;
 
-import viewWebDefault.UralsEndBody.renderEndBody;
-import viewWebDefault.UralsHead.renderHead;
+import uralsViewWebDefault.EndBody.renderEndBody;
+import uralsViewWebDefault.Head.renderHead;
 
 private typedef PublishedScript = {
     url: String,
@@ -63,6 +63,48 @@ function defaultTemplate(
 }
 
 /**
+    Render style link teg by published css
+**/
+function styleLinkTag(p: PublishedCss): String {
+    var option = {
+        rel: "stylesheet",
+        type: ((p.type == null) || (p.type.length == 0))
+            ? null
+            : p.type,
+        href: p.url,
+        media: ((p.media == null) || (p.media.length == 0))
+            ? null
+            : p.media,
+    };
+    var typeBlock = (option.type != null) 
+        ? ' type="${option.type}"'
+        :  "";
+    var mediaBlock = (option.media != null) 
+        ? ' media="${option.media}"'
+        : "";
+    return '<link href="${option.href}" '
+        + 'rel="${option.rel}"${typeBlock}${mediaBlock}>';
+}
+
+/**
+    Render Script tag
+**/
+function scriptTag(s: PublishedScript): String 
+{
+    var deferBlock = (s.defer == true) 
+        ? ' defer' 
+        : '';
+    var languageBlock = (s.language == null)
+        ? ''
+        : ' language="${s.language}"';
+    var asyncBlock = (s.async == true)
+        ? ' async'
+        : '';
+    return '<script type="${s.type}" src="${s.url}"' 
+        + '${deferBlock}${languageBlock}${asyncBlock}></script>';
+}
+
+/**
     Default render options generator for UralsViewWeb
 **/
 function defaultRenderOptions(
@@ -76,7 +118,7 @@ function defaultRenderOptions(
         csrfTokenName: "_csrf",
         csrfGenFunc: csrfGenerator,
         title: title,
-        renderHead: renderHead,
-        renderEndBody: renderEndBody,
+        renderHead: (bundle) -> renderHead(styleLinkTag, bundle),
+        renderEndBody: (bundle) -> renderEndBody(scriptTag, bundle),
     }
 }
