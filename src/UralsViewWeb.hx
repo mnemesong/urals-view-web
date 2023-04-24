@@ -25,19 +25,9 @@ private typedef PageTemplateFunction<RenderOptions> = (
     ?bundle: PublishedAssetBundle
 ) -> String;
 
-private typedef RenderFunction<RenderOptions> = (
-    content: String, 
-    options: RenderOptions,
-    ?bundle: PublishedAssetBundle
-) -> String;
-
-private typedef RenderConfig<RenderOptions> = {
-    renderHead: RenderFunction<RenderOptions>,
-    renderBeginBody: RenderFunction<RenderOptions>,
-    renderEndBody: RenderFunction<RenderOptions>,
-    template: PageTemplateFunction<RenderOptions>
-}
-
+/**
+    Main function, calls page rendering
+**/
 function renderContent<RenderOptions>(
     content: String, 
     template: PageTemplateFunction<RenderOptions>, 

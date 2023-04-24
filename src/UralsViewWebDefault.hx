@@ -32,6 +32,9 @@ private typedef DefaultRenderOptions = {
     renderEndBody: (bundle: PublishedAssetBundle) -> String,
 }
 
+/**
+    Default template function for UralsViewWeb
+**/
 function defaultTemplate(
     content: String,
     options: DefaultRenderOptions,
@@ -59,6 +62,9 @@ function defaultTemplate(
 </html>';
 }
 
+/**
+    Default render options generator for UralsViewWeb
+**/
 function defaultRenderOptions(
     lang: String, 
     title: String,
