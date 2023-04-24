@@ -1,0 +1,13 @@
+{
+    "name": "urals-view-web",
+    "url" : "https://github.com/mnemesong/urals-view-web",
+    "license": "MIT",
+    "tags": ["view", "haxe", "web", "urals"],
+    "description": "View behaviour tool for web of Urals tools",
+    "version": "0.0.1",
+    "classPath": "src/",
+    "releasenote": "First release",
+    "contributors": ["Anatoly_Starodubtsev"],
+    "dependencies": {
+    }
+  }

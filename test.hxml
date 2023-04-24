@@ -1,0 +1,4 @@
+--library sneaker
+--class-path test
+--class-path src
+--run UralsViewWebTest.hx
